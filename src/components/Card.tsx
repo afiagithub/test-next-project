@@ -2,7 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Card = ({ data }) => {
+interface PostType {
+    albumId: number;
+    id: number;
+    title: string;
+    url: string;
+    thumbnailUrl: string;
+}
+
+const Card = ({ data }: {data: PostType}) => {
+    
     return (
         <div className="card bg-base-100 w-96 shadow-xl">
             <figure>
@@ -12,7 +21,7 @@ const Card = ({ data }) => {
                 <h2 className="card-title">Shoes!</h2>
                 <p>{data.title}</p>
                 <div className="card-actions justify-end">
-                    <Link className="btn btn-primary" href={`/photos/${data.id}`}>
+                    <Link className="btn btn-primary" href={`/posts/${data.id}`}>
                         View Details
                     </Link>
                 </div>
